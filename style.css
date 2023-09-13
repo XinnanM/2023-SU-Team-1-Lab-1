@@ -1,0 +1,320 @@
+/*CSS for Game of Set*/
+/* importing fonts */
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
+
+/* whole page formatting */
+:root {
+    --main-radius: 5px;
+    --main-padding: 5px;
+}
+
+/* formatting for the body */
+body {
+    background: #FFFAF2;
+}
+
+/* formatting for body text */
+p {
+    font-family: 'Bungee';
+    font-size: 15px;
+}
+
+/* formatting for game container and page organization */
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr .5fr 2.2fr 1.2fr 0.2fr;
+    grid-template-areas:
+        "logo logo logo logo"
+        "timers timers timers timers"
+        "game game game game"
+        "messages hint hint scoring"
+        "footer footer footer footer";
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "Arial";
+    text-align: center;
+}
+
+/* formatting for logo section at bottom of the screen */
+#logo {
+    background: black;
+    height: 118px;
+    min-height: 114px;
+    grid-area: logo;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+/* formatting for for card grid */
+#game {
+    grid-area: game;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+/* formatting for whole board where cards are */
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 25px;
+    margin: 50px;
+    justify-content: center;
+}
+
+/* formatting for timers section of the screen */
+#timers {
+    grid-area: timers;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    min-height: 55px;
+}
+
+/* formatting for timers */
+.timer {
+    text-align: center;
+    font-size: large;
+    font-family: "Arial";
+}
+
+/* formatting for messages part of the screen */
+#messages {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #1E88E5;
+    grid-area: messages;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+/* formatting for hint part of the screen */
+#hint {
+    border-style: solid;
+    border-width: 3px;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    min-height: 80px;
+    grid-area: hint;
+    grid-gap: 3px;
+    border-radius: var(--main-radius);
+    border-color: #D81B60;
+    padding-top: var(--main-padding);
+}
+
+/* formatting for scoring part of the screen */
+#scoring {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFC107;
+    grid-area: scoring;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+/* formatting for footer of the screen */
+footer {
+    color: #D81B60;
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+/* formatting for making everything fit on the screen */
+@media only screen and (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.4fr 1fr 1fr 1fr .2fr;
+        grid-template-areas:
+            "logo logo"
+            "game game"
+            "timers hint"
+            "messages scoring"
+            "footer footer";
+    }
+
+    #timers {
+        border: 3px solid black;
+        min-height: 110px;
+    }
+
+    #game-container {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+/* formatting for the cards */
+.card {
+    background-color: black;
+    height: 108px;
+    width: 194px;
+    border-radius: 12px;
+}
+
+/* formatting for card animation */
+.card:hover .card-face {
+    transform: scale(1.05);
+}
+
+/* formatting for images on cards */
+.card-face {
+    height: 108px;
+    width: 194px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    transition: all 0.5s ease-out;
+    border-width: medium;
+}
+
+/* formatting for cards that have been selected */
+.selected {
+    box-shadow: 0px 0px 10px 10px blue;
+    color: blue;
+}
+
+/* formatting for the setCall messages */
+#setCalledMessage {
+    justify-self: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* formatting for keys to press instructions */
+.keyToPress {
+    text-align: center;
+}
+
+/* formatting for hint */
+.hint {
+    text-align: center;
+}
+
+/* formatting for hint button */
+#hintbutton {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #008000;
+    box-shadow: rgb(0, 0, 0) 0px 0px 5px 5px;
+    font-size: x-large;
+}
+
+/* formatting for animations on the hint card */
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* formatting for hint card */
+.hintCard {
+        box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        animation: shake 0.5s;
+    }
+    
+
+/* formatting for start menu */
+#startMenu {
+    padding: 20px;
+    border: 2px solid #0d0d0d;
+    border-radius: 10px;
+    background-color: #FFFAF2;
+}
+
+/* formatting for the start button */
+#startButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008000;
+    color: #FFF;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* makes the start button pop when the cursor hovers above it */
+#startButton:hover {
+    background-color: #00C000;
+}
+
+#startWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #121010;
+    text-align: center;
+}
+
+/* formatting for the general layout o the end game screen */
+#scorePage th, #scorePage{
+    border-collapse: collapse;
+    width: 35vw;
+    margin: auto;
+    margin-top: 40vh;
+}
+
+/* formatting for table header and rows for end of game screen */
+#scorePage th, #scorePage td {
+    padding: 8px;
+    border: 1px solid #000000;
+    color: #1a1717;
+}
+
+/* formatting for the end of game screen */
+#scorePage {
+    display: grid;
+    height: 100vh;
+    text-align: center;
+}
+
+/* formatting for table header for end of game screen */
+#scorePage th {
+    background-color: #D81B60;
+    text-align: center;
+    font-size: x-large;
+}
+
+/* formatting for table rows for end of game screen */
+#scorePage tr {
+    text-align: left;
+}
+
+/* formatting for odd table rows for end of game screen */
+#scorePage tr:nth-child(odd) {
+    background-color: #FFC107;
+}
+
+/* formatting for even table rows for end of game screen */
+#scorePage tr:nth-child(even) {
+    background-color: #FFC107;
+}
+
+/* formatting for second/score table column for end of game screen */
+#scorePage td:nth-child(even) {
+    text-align: center;
+}

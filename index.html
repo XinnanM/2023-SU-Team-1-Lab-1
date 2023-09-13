@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Card Game</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./Card.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+  <div id="startWrapper">
+    <div id="startMenu"> 
+      <h1><img src="images/SetLogo.png"></h1>
+      <h3>
+        Rules explained:
+        <ul style="list-style-type:none;">
+          <li>Pick 3 cards each time that may make a set.</li>
+          <li>Player will call SET by pressing key specified and pick the cards.</li>
+          <li>Clicking Hint button could reveal one card that could make the SET.</li>
+          <li>Be sure the SET you are picking is correct! Wrong SET or Running out of turn time would result in penalty</li>
+          <li>Once the game starts, try to find as many set as possible.</li>
+          <li>It is guaranteed to have SET on board. GOOD LUCK!</li>
+          <li>A SET must have SAME or DIFFERENT color AND;</li>
+          <li>A SET must have SAME or DIFFERENT shape AND;</li>
+          <li>A SET must have SAME or DIFFERENT shading AND;</li>
+          <li>A SET must have SAME or DIFFERENT number of shapes.</li>
+        </ul>
+      </h3>
+      <button id="startButton" onclick="startGameButton()">Start Game</button>
+  </div>
+</div>
+  <div id="gamePage" style="display: none">
+<div class="container">
+  <div id="logo"><img src="images/SetLogo.png"></div>
+  <div id="timers">
+  <div id="gameTimer">
+    <div class="timer" id="game-timer">
+      <b>Time: </b><span id="current-min"> 10 </span> min
+      <span id="current-sec"> 0 </span> sec
+    </div>
+  </div>
+    <div id="gameTimer">
+    <div class="timer" id="turn-timer">
+      <b>Turn Time: </b><span id="time-remaining"> 10 </span> sec
+    </div>
+  </div>
+</div>
+  <div id="game">
+    <div id="game-container">
+          <div class="card" id="card0"><div class="card-face"></div></div>
+          <div class="card" id="card1"><div class="card-face"></div></div>
+          <div class="card" id="card2"><div class="card-face"></div></div>
+          <div class="card" id="card3"><div class="card-face"></div></div>
+          <div class="card" id="card4"><div class="card-face"></div></div>
+          <div class="card" id="card5"><div class="card-face"></div></div>
+          <div class="card" id="card6"><div class="card-face"></div></div>
+          <div class="card" id="card7"><div class="card-face"></div></div>
+          <div class="card" id="card8"><div class="card-face"></div></div>
+          <div class="card" id="card9"><div class="card-face"></div></div>
+          <div class="card" id="card10"><div class="card-face"></div></div>
+          <div class="card" id="card11"><div class="card-face"></div></div>
+        </div>
+      </div>
+  <div id="messages">
+    <div class="keyToPress"> <p>how to call a set:</p>
+      <div id="toCallSet"></div>
+    </div>
+  </div>
+  <div id="hint">
+    <div id="setCalledMessage"></div>
+    <div class="hint">
+      <button id="hintbutton" onclick="showHintCard()">Hint</button>
+    </div>
+  </div>
+  <div id="scoring">
+    <div class="scoreboard">
+      <p>Scores:</p>
+      <div id="scores"></div>
+    </div>
+  </div>
+  <footer>This version of Set created by: Alex Dippolito, Chang Lu, Evan Smith, Jeff Thompson, 
+    Kayla Liggett, Stephanie Dietrich, Xinnan Miao</footer>
+</div>
+</div>
+<div id="scorePage" style="display: none">
+  <div id="logo"><img src="images/SetLogo.png"></div>
+  <table></table>
+  <h3>End of Game! Press F5 or refresh to start a new game</h3>
+</div>
+</body>
+</html>
